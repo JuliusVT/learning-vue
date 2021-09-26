@@ -1,21 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navigation />
+    <div class="content-main">
+      <router-view/>
+    </div>
+    <Footer />
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// @ is an alias to /src
+import Navigation from '@/components/layouts/Navigation.vue'
+import Footer from '@/components/layouts/Footer.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Footer,
+    Navigation
+  },
+};
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -23,6 +26,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.content-main{
+  min-height: calc(100vh - 130px);
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 </style>
